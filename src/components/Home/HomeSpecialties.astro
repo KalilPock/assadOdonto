@@ -1,0 +1,67 @@
+---
+// HomeSpecialties.astro
+
+const specialties = [
+  {
+    title: "Implantodontia",
+    desc: "Recuperação funcional e estética com precisão cirúrgica, técnicas avançadas e soluções como o implante zigomático.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>`
+  },
+  {
+    title: "Invisalign & Ortodontia",
+    desc: "Alinhamento invisível e previsível, conforto sem igual para todas as idades.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 4.5C8.7 3.5 10.2 3 12 3s3.3.5 4.5 1.5c1.4 1.2 2 3.1 1.7 5.1-.3 1.8-1.2 3.1-1.6 4.6-.4 1.7-.5 4.3-1.8 5.8-.5.6-1.2.4-1.6-.3L12 16.5l-1.2 3.2c-.4.7-1.1.9-1.6.3-1.3-1.5-1.4-4.1-1.8-5.8-.4-1.5-1.3-2.8-1.6-4.6-.3-2 .3-3.9 1.7-5.1z"></path></svg>`
+  },
+  {
+    title: "Lentes de Contato",
+    desc: "A harmonia perfeita para o seu sorriso, lapidada por especialistas em estética.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>`
+  },
+  {
+    title: "Odontopediatria",
+    desc: "Cuidado humanizado e lúdico para o sorriso e a saúde das crianças.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>`
+  },
+  {
+    title: "Endodontia",
+    desc: "Tratamento de canal com tecnologia de ponta, indolor e altamente eficaz.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`
+  },
+  {
+    title: "Cirurgia e Enxertos",
+    desc: "Procedimentos avançados, como implantes pterigoides e cirurgia All-on-4, realizados com máxima segurança e recuperação otimizada.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v6H3v6h6v6h6v-6h6V9h-6V3H9z"></path></svg>`
+  }
+];
+---
+<section id="especialidades" class="py-12 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center mb-10 md:mb-16">
+            <h2 class="text-xs md:text-sm font-bold text-[#5C1418] tracking-widest uppercase mb-3 animate-from-left">Especialidades</h2>
+            <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 md:mb-6 animate-from-left" data-delay="100">
+                Soluções Odontológicas Completas
+            </h3>
+            <p class="text-gray-600 text-base md:text-lg animate-from-left" data-delay="200">
+                Uma equipe multidisciplinar capaz de atender desde procedimentos preventivos até os casos mais complexos.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {specialties.map((spec, index) => (
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl hover:border-[#5C1418]/20 transition-all duration-300 group hover:-translate-y-2 border border-gray-100 animate-scale" data-delay={index * 100}>
+                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-gray-50 text-[#5C1418] flex items-center justify-center mb-5 md:mb-6 group-hover:bg-[#5C1418] group-hover:text-white transition-colors duration-300">
+                        <Fragment set:html={spec.icon} />
+                    </div>
+                    <h4 class="text-lg md:text-xl font-bold text-black group-hover:text-[#5C1418] transition-colors mb-2 md:mb-3">{spec.title}</h4>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">{spec.desc}</p>
+                </div>
+            ))}
+        </div>
+
+        <div class="mt-10 md:mt-16 text-center animate-scale" data-delay="600">
+            <a href="#contato" class="inline-flex justify-center items-center px-8 py-3.5 bg-black text-white font-semibold rounded-full hover:bg-[#5C1418] hover:scale-105 transition-all duration-300 w-full sm:w-auto shadow-sm hover:shadow-md">
+                Ver todas as especialidades
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  links?: Array<{ label: string; href: string }>;
+}
+
+const { links = [] } = Astro.props;
+---
+<header class="fixed z-50 w-full bg-[#3A3A3A]/95 text-white shadow-sm">
+  <div class="container mx-auto flex items-center justify-between px-4 py-4">
+    <a href="/" class="font-bold">CLÍNICA</a>
+    <nav class="hidden items-center gap-6 md:flex">
+      {links.map((link) => <a href={link.href} class="hover:text-gray-200">{link.label}</a>)}
+    </nav>
+  </div>
+</header>

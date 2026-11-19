@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HomeHero from '../components/Home/HomeHero.astro';
+import HomeDifferential from '../components/Home/HomeDifferential.astro';
+import HomeSpecialties from '../components/Home/HomeSpecialties.astro';
+import HomeDoctors from '../components/Home/HomeDoctors.astro';
+import HomeStory from '../components/Home/HomeStory.astro';
+import HomeBeforeAfter from '../components/Home/HomeBeforeAfter.astro';
+import HomeInfrastructure from '../components/Home/HomeInfrastructure.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const navLinks = [
+  { label: 'O Diferencial', href: '#diferencial' },
+  { label: 'Especialidades', href: '#especialidades' },
+  { label: 'Corpo Clínico', href: '#corpo-clinico' },
+  { label: 'Nossa História', href: '#historia' },
+  { label: 'Resultados', href: '#resultados' },
+  { label: 'Infraestrutura', href: '#infraestrutura' },
+];
+---
+
+<Layout title="Clínica - Odontologia Integrada">
+	<Header links={navLinks} />
+	<main>
+		<HomeHero />
+		<HomeDifferential />
+        <HomeSpecialties />
+        <HomeDoctors />
+        <HomeStory />
+        <HomeBeforeAfter />
+        <HomeInfrastructure />
+	</main>
+	<Footer />
+    <WhatsAppButton />
+</Layout>

@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { Content as PrivacyPolicyContent } from '../content/politica-de-privacidade.md';
+
+const navLinks = [
+  { label: 'O Diferencial', href: '/#diferencial' },
+  { label: 'Especialidades', href: '/#especialidades' },
+  { label: 'Corpo Clínico', href: '/#corpo-clinico' },
+  { label: 'Nossa História', href: '/#historia' },
+  { label: 'Resultados', href: '/#resultados' },
+  { label: 'Infraestrutura', href: '/#infraestrutura' },
+];
+---
+
+<Layout
+  title="Política de Privacidade"
+  description="Conheça como esta clínica coleta, usa e protege os dados pessoais de acordo com a LGPD."
+>
+  <Header links={navLinks} />
+  <main class="pt-24 pb-16">
+    <article class="privacy-policy container mx-auto px-4 max-w-4xl">
+      <PrivacyPolicyContent />
+    </article>
+  </main>
+  <Footer />
+  <WhatsAppButton />
+</Layout>

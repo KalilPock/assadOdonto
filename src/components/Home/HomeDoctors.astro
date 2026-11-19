@@ -1,0 +1,18 @@
+<section id="corpo-clinico" class="py-12 md:py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-[#3A3A3A] mb-3">Corpo Clínico</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Especialistas da clínica</h3>
+      <p class="text-gray-600">[Apresente aqui os profissionais da nova clínica.]</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[1, 2, 3].map(() => (
+        <div class="bg-white border border-gray-100 rounded-2xl p-6 text-center">
+          <div class="aspect-[3/4] rounded-xl bg-gray-200 mb-5 flex items-center justify-center text-[#3A3A3A]">Foto do especialista<br />[Placeholder]</div>
+          <h4 class="font-bold text-gray-900">[Nome do profissional]</h4>
+          <p class="text-gray-600 text-sm mt-2">[Especialidade] - [CRO]</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

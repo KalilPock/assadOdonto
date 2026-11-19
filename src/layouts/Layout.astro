@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/inter/latin-700.css';
+
+interface Props {
+	title: string;
+    description?: string;
+}
+
+const { title, description = "Odontologia integrada e especializada." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data:;" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+        <slot name="head" />
+
+        <style is:global>
+            :root {
+                --color-primary-gray: #3A3A3A;
+                --color-black: #0D0D0D;
+                --color-white: #FAFAFA;
+                --color-light-gray: #8C8C8C;
+            }
+        </style>
+
+	</head>
+	<body class="font-sans antialiased text-[#3A3A3A] bg-white">
+
+		<slot />
+
+        <script>
+            // Enhanced scroll animation script
+            document.addEventListener('DOMContentLoaded', () => {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Handle delay if present
+                            const delay = entry.target.getAttribute('data-delay');
+                            if (delay) {
+                                setTimeout(() => {
+                                    entry.target.classList.remove('opacity-0', 'translate-y-10', 'translate-x-10', '-translate-x-10', 'scale-95');
+                                    entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0', 'scale-100');
+                                }, parseInt(delay));
+                            } else {
+                                entry.target.classList.remove('opacity-0', 'translate-y-10', 'translate-x-10', '-translate-x-10', 'scale-95');
+                                entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0', 'scale-100');
+                            }
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                // Standard fade up
+                document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+                    el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700', 'ease-out');
+                    observer.observe(el);
+                });
+
+                // Fade in from left
+                document.querySelectorAll('.animate-from-left').forEach((el) => {
+                    el.classList.add('opacity-0', '-translate-x-10', 'transition-all', 'duration-700', 'ease-out');
+                    observer.observe(el);
+                });
+
+                // Fade in from right
+                document.querySelectorAll('.animate-from-right').forEach((el) => {
+                    el.classList.add('opacity-0', 'translate-x-10', 'transition-all', 'duration-700', 'ease-out');
+                    observer.observe(el);
+                });
+
+                // Scale up
+                document.querySelectorAll('.animate-scale').forEach((el) => {
+                    el.classList.add('opacity-0', 'scale-95', 'transition-all', 'duration-700', 'ease-out');
+                    observer.observe(el);
+                });
+            });
+        </script>
+	</body>
+</html>
